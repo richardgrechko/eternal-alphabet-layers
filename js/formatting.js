@@ -17,7 +17,7 @@ function fullFormat(options) {
 	} else if (options.num.gte("e10")) {
 		return fullFormat({num: new Decimal(10).pow(options.num.log10().sub(options.num.log10().floor())), precision: options.precision}) + "e" + options.num.log10().floor();
 	} else if (options.num.gte("1000000")) {
-		return commaFormat(options.num.floor());
+		return commaFormat(options.num.floor().toString());
 	} else if (options.num.gte("1000")) {
 		return commaFormat(Number(options.num).toFixed(options.precision));
 	} else if (options.num.gte("0")) {
