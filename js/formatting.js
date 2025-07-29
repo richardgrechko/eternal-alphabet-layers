@@ -11,7 +11,7 @@ function fullFormat(options) {
 		precision: options.precision || 3,
 	}
 	if (options.num.gte("10^^10")) {
-		return new Decimal(10).pow(options.num.slog().sub(options.num.slog().floor())) + "F" + options.num.slog().floor();
+		return fullFormat({num: new Decimal(10).pow(options.num.slog().sub(options.num.slog().floor())), precision: options.precision}) + "F" + options.num.slog().floor();
 	} else if (options.num.gte("ee10")) {
 		return "e" + fullFormat({num: options.num.log10(), precision: options.precision});
 	} else if (options.num.gte("e10")) {
