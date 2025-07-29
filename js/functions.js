@@ -22,8 +22,8 @@ var functions = {
 	},
 	load() {
 		function loadValue(value,alternate) {
-			console.log((value == null || value == undefined || isNaN(value) || value.toString() == "NaN") ? alternate : value)
-			return (value == null || value == undefined || isNaN(value) || value.toString() == "NaN") ? alternate : value;
+			console.log((value !== null || value !== undefined || !isNaN(value) || value.toString() !== "NaN") ? value : alternate)
+			return (value !== null || value  !== undefined || !isNaN(value) || value.toString() !== "NaN") ? value : alternate;
 		};
 		let item = localStorage.getItem("EternalAlphabetLayersSave");
 		if (item != null) {
