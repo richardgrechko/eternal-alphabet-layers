@@ -1,4 +1,3 @@
-let tetration = 0;
 const functions = {
 	convertToLayer(number) {
 		let letters = "abcdefghijklmnopqrstuvwxyz";
