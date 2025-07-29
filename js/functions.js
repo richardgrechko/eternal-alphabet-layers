@@ -1,4 +1,4 @@
-const functions = {
+var functions = {
 	convertToLayer(number) {
 		let letters = "abcdefghijklmnopqrstuvwxyz";
 		if (number.gte("10^^5")) {
