@@ -9,7 +9,7 @@ const functions = {
 		function loadValue(value,alternate) {
 			return value || alternate;
 		};
-		let item = importString !== undefined ? importString : localStorage.getItem("EternalAlphabetLayersSave");
+		let item = localStorage.getItem("EternalAlphabetLayersSave");
 		if (item != null) {
 			let object;
 			try {
