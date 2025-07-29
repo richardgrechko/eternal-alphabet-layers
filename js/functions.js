@@ -22,7 +22,7 @@ var functions = {
 	},
 	load() {
 		function loadValue(value,alternate) {
-			return value || alternate;
+			return value != undefined ? value : alternate;
 		};
 		let item = localStorage.getItem("EternalAlphabetLayersSave");
 		if (item != null) {
