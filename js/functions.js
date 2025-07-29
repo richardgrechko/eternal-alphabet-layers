@@ -61,6 +61,6 @@ var functions = {
 		requestAnimationFrame(functions.update)
 	}
 };
-functions.save();
-functions.load();
-functions.update();
+setTimeout(functions.save(),100);
+setTimeout(functions.load(),100);
+setTimeout(functions.update(),100);
