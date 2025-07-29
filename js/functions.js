@@ -22,7 +22,7 @@ var functions = {
 	},
 	load() {
 		function loadValue(value,alternate) {
-			return (value != undefined || isNaN(value) || value == "NaN") ? alternate : value;
+			return (value != undefined || isNaN(value) || value.toString() == "NaN") ? alternate : value;
 		};
 		let item = localStorage.getItem("EternalAlphabetLayersSave");
 		if (item != null) {
