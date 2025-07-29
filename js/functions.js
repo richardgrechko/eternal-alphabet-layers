@@ -44,8 +44,8 @@ var functions = {
 	},
 	update() {
 		data.tetration = data.tetration || 0;
-		data.tetration += ((data.tetration >= 1) ? .0001 : .001) * data.eternities.sqrt();
-		data.tetration *= 1 + (.0001 * Math.log10(data.tetration) * data.eternities.sqrt());
+		data.tetration += ((data.tetration >= 1) ? .0001 : .001) * data.eternities.add(1).sqrt();
+		data.tetration *= 1 + (.0001 * Math.log10(data.tetration) * data.eternities.add(1).sqrt());
 		if (data.tetration == Infinity) {
 			data.eternities = data.eternities.add(1);
 			data.tetration = 0;
