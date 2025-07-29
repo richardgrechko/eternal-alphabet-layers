@@ -59,4 +59,5 @@ const functions = {
 		requestAnimationFrame(functions.update)
 	}
 };
+functions.load();
 functions.update();
