@@ -55,6 +55,7 @@ const functions = {
 				data.layer.gte("1e6") ? `<span style="color: hsl(${data.layer.log10().mul(180)} 100 50); text-shadow: currentcolor 0 0 0.5em;">${this.convertToLayer(data.layer)}</span>` : 
 				`${data.number}<span style="color: hsl(${data.layer.log10().mul(180)} ${data.layer.gte("10") ? 100 : data.layer.mul(10)} 50); text-shadow: currentcolor 0 0 ${data.layer.gte("100") ? 0.5 : data.layer.sqrt().div(20)}em;">${this.convertToLayer(data.layer)}</span>`;
 		document.getElementById("totalA").innerHTML = data.layer.gte("2") ? `That is also ${data.totalA}<span style="color: hsl(0 10 50);">a</span>` : "";
+		document.getElementById("eternities").innerHTML = `You have <span style="font-weight: 700;">${data.eternities}</span> eternities.`;
 		requestAnimationFrame(functions.update)
 	}
 };
