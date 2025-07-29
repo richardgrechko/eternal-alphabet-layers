@@ -52,9 +52,9 @@ var functions = {
 		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
 		data.number = new Decimal("1e10").pow(data.totalA.log(1e10).sub(data.totalA.log(1e10).floor()));
 		data.layer = data.totalA.log(1e10).floor().add(1);
-		document.getElementById("layers").innerHTML = data.layerHTML = data.layer.gte("10^^10") ? `<span style="color: hsl(${data.layer.slog().log10().mul(360)} 100 ${50+(Math.sin(data.layer.slog().log10())*25)}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
-				data.layer.gte("ee10") ? `<span style="color: hsl(${data.layer.slog().mul(360)} 100 ${50+(Math.sin(data.layer.slog())*10)}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
-				data.layer.gte("1e6") ? `<span style="color: hsl(${data.layer.log10().log10().mul(180)} 100 ${50+(Math.sin(data.layer.log10().log10())*5)}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
+		document.getElementById("layers").innerHTML = data.layerHTML = data.layer.gte("10^^10") ? `<span style="color: hsl(${data.layer.slog().log10().mul(360)} 100 ${50+(Math.sin(data.layer.slog().log10())*15)+15}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
+				data.layer.gte("ee10") ? `<span style="color: hsl(${data.layer.slog().mul(360)} 100 ${50+(Math.sin(data.layer.slog())*10)+10}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
+				data.layer.gte("1e6") ? `<span style="color: hsl(${data.layer.log10().log10().mul(180)} 100 ${50+(Math.sin(data.layer.log10().log10())*5)+5}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
 				`${fullFormat({num: data.number})}<span style="color: hsl(${data.layer.log10().mul(180)} ${data.layer.gte("10") ? 100 : data.layer.mul(10)} 50); text-shadow: currentcolor 0 0 ${data.layer.gte("100") ? 0.5 : data.layer.sqrt().div(20)}em;">${functions.convertToLayer(data.layer)}</span>`;
 		document.getElementById("totalA").innerHTML = data.layer.gte("2") ? `That is also ${fullFormat({num: data.totalA})}<span style="color: hsl(0 10 50);">a</span>` : "";
 		document.getElementById("currentLayer").innerHTML = `You're currently in Layer ${fullFormat({num: data.layer, precision: 0})}`;
