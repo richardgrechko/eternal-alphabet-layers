@@ -1,3 +1,5 @@
 functions.save()
 functions.load()
-functions.update();
+while (!isNaN(data.tetration)) {
+	functions.update();
+}
