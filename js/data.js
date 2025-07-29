@@ -1,4 +1,3 @@
-let tetration = 0;
 let data = {
 	number: new Decimal("1"),
 	layer: new Decimal("1"),
