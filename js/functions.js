@@ -22,8 +22,8 @@ var functions = {
 	},
 	load() {
 		function loadValue(value,alternate) {
-			console.log((value != undefined || isNaN(value) || value.toString() == "NaN") ? alternate : value)
-			return (value != undefined || isNaN(value) || value.toString() == "NaN") ? alternate : value;
+			console.log((value == null || value == undefined || isNaN(value) || value.toString() == "NaN") ? alternate : value)
+			return (value == null || value == undefined || isNaN(value) || value.toString() == "NaN") ? alternate : value;
 		};
 		let item = localStorage.getItem("EternalAlphabetLayersSave");
 		if (item != null) {
@@ -61,6 +61,6 @@ var functions = {
 		requestAnimationFrame(functions.update)
 	}
 };
-setTimeout(functions.save(),100);
-setTimeout(functions.load(),100);
-setTimeout(functions.update(),100);
+functions.save()
+functions.load()
+functions.update();
