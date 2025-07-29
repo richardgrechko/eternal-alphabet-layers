@@ -17,7 +17,7 @@ var functions = {
 		return btoa(unescape(encodeURIComponent(JSON.stringify(data))))
 	},
 	save() {
-		localStorage.setItem("EternalAlphabetLayersSave",this.getSaveCode());
+		localStorage.setItem("EternalAlphabetLayersSave",functions.getSaveCode());
 		setTimeout(this.save, 200);
 	},
 	load() {
