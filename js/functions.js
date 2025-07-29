@@ -43,17 +43,13 @@ var functions = {
 		};
 	},
 	update() {
-		if (!isNaN(data.tetration)) {
-			data.tetration += ((data.tetration >= 1) ? .0001 : .001) * data.eternities.sqrt();
-			data.tetration *= 1 + (.0001 * Math.log10(data.tetration) * data.eternities.sqrt());
-		} else {
-			data.tetration = 0;
-		}
+		data.tetration += ((data.tetration >= 1) ? .0001 : .001) * data.eternities.sqrt();
+		data.tetration *= 1 + (.0001 * Math.log10(data.tetration) * data.eternities.sqrt());
 		if (data.tetration == Infinity) {
 			data.eternities = data.eternities.add(1);
 			data.tetration = 0;
 		}
-		data.totalA = new Decimal("10").tetrate(data.tetration);
+		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
 		data.number = new Decimal("5").pow(data.totalA.log(5).sub(data.totalA.log(5).floor()));
 		data.layer = data.totalA.log(5).floor().add(1);
 		document.getElementById("layers").innerHTML = data.layerHTML = data.layer.gte("10^^10") ? `<span style="color: hsl(${data.layer.slog().log10().mul(360)} 100 50); text-shadow: currentcolor 0 0 0.5em;">${this.convertToLayer(data.layer)}</span>` : 
