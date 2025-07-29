@@ -37,6 +37,7 @@ var functions = {
 			data.layer = loadValue(data.layer, new Decimal("1"));
 			data.totalA = loadValue(data.totalA, new Decimal("1"));
 			data.eternities = loadValue(data.eternities, new Decimal("0"));
+			data.tetration = loadValue(data.tetration, 0);
 			data.layerHTML = loadValue(data.layerHTML, "Couldn't load.");
 		};
 	},
