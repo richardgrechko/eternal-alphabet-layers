@@ -18,6 +18,7 @@ const functions = {
 				alert("Error loading game.\nReason: " + e);
 				return;
 			};
+			data.number = loadValue(data.number, new Decimal("0"));
 		};
 	},
 	update() {
