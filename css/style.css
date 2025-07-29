@@ -1,1 +1,13 @@
-
+html {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+#layer {
+  font-size: 36px;
+  font-weight: 700;
+}
+#totalA {
+  font-size: 24px;
+  font-weight: 500;
+}
