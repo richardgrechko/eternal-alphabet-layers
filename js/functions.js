@@ -18,7 +18,6 @@ var functions = {
 	},
 	save() {
 		localStorage.setItem("EternalAlphabetLayersSave",functions.getSaveCode());
-		setTimeout(this.save, 200);
 	},
 	load() {
 		function loadValue(value,alternate) {
