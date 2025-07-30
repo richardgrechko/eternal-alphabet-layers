@@ -50,8 +50,10 @@ var functions = {
 			data.tetration = 0;
 		}
 		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
-		data.number = new Decimal("1e10").pow(data.totalA.log(1e10).sub(data.totalA.log(1e10).floor()));
-		data.layer = data.totalA.log(1e10).floor().add(1);
+		data.number = data.totalA.gte(1e10)
+			? new Decimal("1e10").pow(new Decimal("10").tetrate(data.tetration || 0).pow(1/10).mul(1e9).log(1e10).sub(new Decimal("10").tetrate(data.tetration || 0).pow(1/10).mul(1e9).log(1e10).floor()))
+			: new Decimal("1e10").pow(data.totalA.log(1e10).sub(data.totalA.log(1e10).floor()));
+		data.layer = data.totalA.gte(1e10) ? new Decimal("10").tetrate(data.tetration || 0).pow(1/10).mul(1e9).log(1e10).floor().add(1) : data.totalA.log(1e10).floor().add(1);
 		document.getElementById("layers").innerHTML = data.layerHTML = data.layer.gte("10^^10") ? `<span style="color: hsl(${data.layer.slog().log10().mul(360)} 100 ${50+(Math.sin(data.layer.slog().log10())*15)+15}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
 				data.layer.gte("ee10") ? `<span style="color: hsl(${data.layer.slog().mul(360)} 100 ${50+(Math.sin(data.layer.slog())*10)+10}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
 				data.layer.gte("1e6") ? `<span style="color: hsl(${data.layer.log10().log10().mul(180)} 100 ${50+(Math.sin(data.layer.log10().log10())*5)+5}); text-shadow: currentcolor 0 0 0.5em;">${functions.convertToLayer(data.layer)}</span>` : 
