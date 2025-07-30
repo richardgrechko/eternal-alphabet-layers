@@ -19,8 +19,8 @@ function fullFormat(options) {
 	} else if (options.num.gte("1000000")) {
 		return commaFormat(options.num.floor().toString());
 	} else if (options.num.gte("1000")) {
-		return commaFormat(Number(options.num).toFixed(options.precision));
+		return options.precision == 0 ? commaFormat(options.num.floor().toString()) : commaFormat(Number(options.num).toFixed(options.precision));
 	} else if (options.num.gte("0")) {
-		return Number(options.num).toFixed(options.precision);
+		return options.precision == 0 ? options.num.floor().toString() : Number(options.num).toFixed(options.precision);
 	};
 }
