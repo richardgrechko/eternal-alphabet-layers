@@ -10,12 +10,14 @@ function fullFormat(options) {
 		num: options.num || new Decimal("1"),
 		precision: options.precision ?? 3,
 	}
-	if (options.num.gte("10^^10")) {
-		return fullFormat({num: new Decimal(10).pow(options.num.slog().sub(options.num.slog().floor())), precision: options.precision}) + "F" + options.num.slog().floor();
+	if (options.num.gte("10^^1e6")) {
+		return "F" + fullFormat({num: options.num.slog(), precision: options.precision});
+	} else if (options.num.gte("10^^10")) {
+		return fullFormat({num: new Decimal(10).pow(options.num.slog().sub(options.num.slog().floor())), precision: options.precision}) + "F" + fullFormat({num: options.num.slog().floor(), precision: 0});
 	} else if (options.num.gte("ee10")) {
-		return "e" + fullFormat({num: options.num.log10(), precision: options.precision});
+		return "e" + fullFormat({num: options.num.log10(), precision: 0});
 	} else if (options.num.gte("e10")) {
-		return fullFormat({num: new Decimal(10).pow(options.num.log10().sub(options.num.log10().floor())), precision: options.precision}) + "e" + options.num.log10().floor();
+		return fullFormat({num: new Decimal(10).pow(options.num.log10().sub(options.num.log10().floor())), precision: 3}) + "e" + fullFormat({num: options.num.log10(), precision: 0});
 	} else if (options.num.gte("1000000")) {
 		return commaFormat(options.num.floor().toString());
 	} else if (options.num.gte("1000")) {
