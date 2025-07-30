@@ -8,7 +8,7 @@ function commaFormat(num) {
 function fullFormat(options) {
 	options = {
 		num: options.num || new Decimal("1"),
-		precision: options.precision || 3,
+		precision: options.precision ?? 3,
 	}
 	if (options.num.gte("10^^10")) {
 		return fullFormat({num: new Decimal(10).pow(options.num.slog().sub(options.num.slog().floor())), precision: options.precision}) + "F" + options.num.slog().floor();
@@ -19,8 +19,8 @@ function fullFormat(options) {
 	} else if (options.num.gte("1000000")) {
 		return commaFormat(options.num.floor().toString());
 	} else if (options.num.gte("1000")) {
-		return options.precision == 0 ? commaFormat(options.num.floor().toString()) : commaFormat(Number(options.num).toFixed(options.precision));
+		return commaFormat(Number(options.num).toFixed(options.precision));
 	} else if (options.num.gte("0")) {
-		return options.precision == 0 ? options.num.floor().toString() : Number(options.num).toFixed(options.precision);
+		return Number(options.num).toFixed(options.precision);
 	};
 }
