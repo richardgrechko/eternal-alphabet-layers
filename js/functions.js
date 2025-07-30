@@ -51,7 +51,7 @@ var functions = {
 		}
 		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
 		data.number = data.totalA.gte(Number.MAX_VALUE)
-			? new Decimal(Number.MAX_VALUE).pow(data.totalA.log(Number.MAX_VALUE).log10().sub(data.totalA.log(Number.MAX_VALUE).log10().floor()).pow(5))
+			? new Decimal(Number.MAX_VALUE).pow(data.totalA.log(Number.MAX_VALUE).log10().sub(data.totalA.log(Number.MAX_VALUE).log10().floor()).pow(3))
 			: data.totalA;
 		data.layer = data.totalA.gte(Number.MAX_VALUE) ? data.totalA.log(Number.MAX_VALUE).log10().floor().add(2) : data.totalA.log(Number.MAX_VALUE).floor().add(1);
 		document.getElementById("layers").innerHTML = data.layerHTML = data.layer.gte("10^^10") ? `<span style="color: hsl(${data.layer.slog().log10().mul(180)} 100 ${50+(Math.sin(data.layer.slog().log10())*15)+15}); text-shadow: currentcolor 0 0 0.6em, currentcolor 0 0 0.4em, currentcolor 0 0 0.2em;">${functions.convertToLayer(data.layer)}</span>` : 
