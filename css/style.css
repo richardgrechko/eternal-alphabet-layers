@@ -4,6 +4,7 @@ html {
   font-family: "Fira Code", monospace;
   font-optical-sizing: auto;
   font-style: normal;
+  text-align: center;
 }
 #layers {
   font-size: 36px;
