@@ -1,7 +1,9 @@
 var functions = {
 	convertToLayer(number) {
 		let letters = "abcdefghijklmnopqrstuvwxyz";
-		if (number.gte("10^^5")) {
+		if (number.gte("10^^1e308")) {
+			return "<[Ω]>;
+		} else if (number.gte("10^^5")) {
 			return "<[" + this.convertToLayer(number.slog().floor().sub(1)) + "]>:" + this.convertToLayer(new Decimal(10).pow(new Decimal(10).pow(number.slog().sub(number.slog().floor()))));
 		} else if (number.gte("ee10")) {
 			return "<sub>{" + this.convertToLayer(number.mul(26).add(1).log(27).floor().sub(1)) + "}</sub>◇";
