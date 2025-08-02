@@ -53,9 +53,9 @@ var functions = {
 		}
 		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
 		data.number = data.totalA.gte(Number.MAX_VALUE)
-			? new Decimal(Number.MAX_VALUE).pow(data.totalA.log(Number.MAX_VALUE).log10().add(1.1**25).log(1.1).sub(data.totalA.log(Number.MAX_VALUE).log10().add(1.1**25).log(1.1).floor()).pow(3))
+			? new Decimal(Number.MAX_VALUE).pow(data.totalA.log(Number.MAX_VALUE).log10().add(1.1**25).log(1.1).tetrate(0.9).sub(data.totalA.log(Number.MAX_VALUE).log10().add(1.1**25).log(1.1).tetrate(0.9).floor()).pow(3))
 			: data.totalA;
-		data.layer = data.totalA.gte(Number.MAX_VALUE) ? data.totalA.log(Number.MAX_VALUE).log10().add(1.1**25).log(1.1).floor().sub(23) : data.totalA.log(Number.MAX_VALUE).floor().add(1);
+		data.layer = data.totalA.gte(Number.MAX_VALUE) ? data.totalA.log(Number.MAX_VALUE).log10().add(1.1**25).log(1.1).tetrate(0.9).floor().sub(23) : data.totalA.log(Number.MAX_VALUE).floor().add(1);
 		document.getElementById("layers").innerHTML = data.layerHTML = data.layer.gte("10^^10") ? `<span style="color: hsl(${data.layer.slog().log10().mul(180)} 100 ${50+(Math.sin(data.layer.slog().log10())*15)+15}); text-shadow: currentcolor 0 0 0.6em, currentcolor 0 0 0.4em, currentcolor 0 0 0.2em;">${functions.convertToLayer(data.layer)}</span>` : 
 				data.layer.gte("ee10") ? `<span style="color: hsl(${data.layer.slog().mul(180)} 100 ${55+(Math.sin(data.layer.slog())*10)+10}); text-shadow: currentcolor 0 0 0.6em, currentcolor 0 0 0.4em, currentcolor 0 0 0.2em;">${functions.convertToLayer(data.layer)}</span>` : 
 				data.layer.gte("1e6") ? `<span style="color: hsl(${data.layer.log10().log10().mul(180)} 100 ${60+(Math.sin(data.layer.log10().log10())*5)+5}); text-shadow: currentcolor 0 0 0.6em, currentcolor 0 0 0.4em, currentcolor 0 0 0.2em;">${functions.convertToLayer(data.layer)}</span>` : 
