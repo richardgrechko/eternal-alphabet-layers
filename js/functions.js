@@ -4,8 +4,7 @@ var functions = {
 			letters: "abcdefghijklmnopqrstuvwxyz",
 			infinity: {
 				default: "Pts..∞..∑..Real..Aff..Cel".split(".."),
-				tier1: "Super-..Hyper-..Ultra-..Absolute-..Ultima-".split(".."),
-				tier2: "Uni-..Multi-..Meta-..Omni-..Outer-".split(".."),
+				tier1: "Sup-..Hyp-..Ult-..Abs-..Meta-".split(".."),
 			},
 		};
 		switch (mode) {
@@ -28,16 +27,14 @@ var functions = {
 					return "Ω<sup>◇[Ω]◇</sup>";
 				} else if (number.gte("10^^10")) {
 					return this.convertToLayer(new Decimal(10).pow(new Decimal(10).pow(number.slog().sub(number.slog().floor()))),"Infinity") + "<sup>◇[" + this.convertToLayer(number.slog().floor().sub(1),"Infinity") + "]◇</sup>";
-				} else if (number.gte(new Decimal(5).pow(244140625))) {
-					return "<sub>[" + this.convertToLayer(number.sub(2).log(15625).floor(),"Infinity") + "]</sub>◇";
-				} else if (number.gte(244140627)) {
-					return "<sub>[" + this.convertToLayer(number.sub(2).log(15625).floor(),"Infinity") + "]</sub>" + this.convertToLayer(number.sub(2).mul(15625).div(new Decimal(15625).pow(number.sub(2).log(15625).floor())).floor(),"Infinity");
-				} else if (number.gte(15627)) {
-					return this.convertToLayer(number.sub(1).div(15625).add(1).floor(),"Infinity") + ">" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(15625).floor().mul(15625)).add(2),"Infinity");
+				} else if (number.gte(new Decimal(5).pow(9765625))) {
+					return "<sub>[" + this.convertToLayer(number.sub(2).log(3125).floor(),"Infinity") + "]</sub>◇";
+				} else if (number.gte(9765627)) {
+					return "<sub>[" + this.convertToLayer(number.sub(2).log(3125).floor(),"Infinity") + "]</sub>" + this.convertToLayer(number.sub(2).mul(3125).div(new Decimal(3125).pow(number.sub(2).log(3125).floor())).floor(),"Infinity");
 				} else if (number.gte(3127)) {
-					return layers.infinity.tier2[number.sub(2).div(3125).floor()] + this.convertToLayer(number.sub(2).sub(number.sub(2).div(3125).floor().mul(3125)).add(2),"Infinity");
+					return this.convertToLayer(number.sub(1).div(3125).add(1).floor(),"Infinity") + ">" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(3125).floor().mul(3125)).add(2),"Infinity");
 				} else if (number.gte(27)) {
-					return "Arch<sup>" + this.convertToLayer(number.sub(2).div(5).floor(),"Infinity") + "</sup>-" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(5).floor().mul(5)).add(2),"Infinity");
+					return "Lvl<sup>" + this.convertToLayer(number.sub(2).div(5).floor(),"Infinity") + "</sup>-" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(5).floor().mul(5)).add(2),"Infinity");
 				} else if (number.gte(7)) {
 					return layers.infinity.tier1[number.sub(2).div(5).floor()] + this.convertToLayer(number.sub(2).sub(number.sub(2).div(5).floor().mul(5)).add(2),"Infinity");
 				} else {
