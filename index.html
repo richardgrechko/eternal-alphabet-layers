@@ -24,12 +24,23 @@
   </head>
   <body>
     <div id="app">
+      <button id="mainTab" class="tabButtons">Main</button>
+      <button id="optionsTab" class="tabButtons">Options</button>
       <div>Inspired by Omega Meta Zero</div>
       <div>If you see an error, please let me know.</div>
-      <div id="layers">Loading</div>
-      <div id="totalA"></div>
-      <div id="currentLayer"></div>
-      <div id="eternities"></div>
+      <div id="layerContainer">
+        <div id="layers">Loading</div>
+        <div id="totalA"></div>
+        <div id="currentLayer"></div>
+        <div id="eternities"></div>
+      </div>
+      <div id="settingsContainer">
+        <label for="layerModeOption">Layer Mode: </label>
+        <select id="layerModeOption">
+          <option>Normal</option>
+          <option>Infinity</option>
+        </select>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/break_eternity.js"></script>
     <script src="js/data.js"></script>
