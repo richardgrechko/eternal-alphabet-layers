@@ -24,3 +24,11 @@ html {
   font-weight: 500;
   color: #9f65e6;
 }
+#layerTab, #optionsTab {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
