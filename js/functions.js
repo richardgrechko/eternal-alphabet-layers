@@ -28,7 +28,7 @@ var functions = {
 					return "Ω<sup>◇[Ω]◇</sup>";
 				} else if (number.gte("10^^10")) {
 					return this.convertToLayer(new Decimal(10).pow(new Decimal(10).pow(number.slog().sub(number.slog().floor()))),"Infinity") + "<sup>◇[" + this.convertToLayer(number.slog().floor().sub(1),"Infinity") + "]◇</sup>";
-				} else if (number.gte(new Decimal(5).pow(244140625)) {
+				} else if (number.gte(new Decimal(5).pow(244140625))) {
 					return "<sub>[" + this.convertToLayer(number.sub(2).log(15625).floor(),"Infinity") + "]</sub>◇";
 				} else if (number.gte(244140627)) {
 					return "<sub>[" + this.convertToLayer(number.sub(2).log(15625).floor(),"Infinity") + "]</sub>" + this.convertToLayer(number.sub(2).mul(15625).div(new Decimal(15625).pow(number.sub(2).log(15625).floor())).floor(),"Infinity");
