@@ -6,6 +6,13 @@ html {
   font-style: normal;
   text-align: center;
 }
+#hardReset {
+  background-color: #f00;
+  color: #000;
+  border: 1px solid #800;
+  height: 50px;
+  weight: 150px;
+}
 #layers {
   font-size: 36px;
   font-weight: 700;
