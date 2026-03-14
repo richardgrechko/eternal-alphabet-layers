@@ -72,6 +72,19 @@ var functions = {
 			data.layerHTML = loadValue(data.layerHTML, "Couldn't load.");
 		};
 	},
+	hardReset() {
+		let a = prompt("Are you sure?").toLowerCase();
+		let b = prompt("Are you really sure? You will lose your progress.").toLowerCase();
+		if ((a == "yes" || a == "y") &&
+		   (b == "yes" || b == "y")) {
+			data.number = new Decimal("1");
+			data.layer = new Decimal("1");
+			data.totalA = new Decimal("1");
+			data.eternities = new Decimal("0");
+			data.tetration = 0;
+			data.layerHTML = "Loading";
+		};
+	},
 	update() {
 		data.tetration = data.tetration || 0;
 		data.tetration += ((data.tetration >= 1) ? .0001/(data.tetration**0.8) : .001) * data.eternities.add(1).sqrt();
