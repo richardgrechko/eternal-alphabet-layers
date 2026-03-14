@@ -3,7 +3,7 @@ var functions = {
 		let layers = {
 			letters: "abcdefghijklmnopqrstuvwxyz",
 			infinity: {
-				default: "Pts..∞..∑..Real..Aff..Cel".split(".."),
+				default: "Pts..∞..∑..▾..ϱ..Ϗ..₣..Cr..Id..Vt..Im..Atr..Is..Sv..Fat..Ins..Unf..Cal..Fut..Fin..Uni".split(".."),
 				tier1: "Sup-..Hyp-..Ult-..Abs-..Meta-".split(".."),
 			},
 		};
@@ -35,8 +35,8 @@ var functions = {
 					return this.convertToLayer(number.sub(1).div(3125).add(1).floor(),"Infinity") + ">" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(3125).floor().mul(3125)).add(2),"Infinity");
 				} else if (number.gte(27)) {
 					return "Lvl<sup>" + this.convertToLayer(number.sub(2).div(5).floor(),"Infinity") + "</sup>-" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(5).floor().mul(5)).add(2),"Infinity");
-				} else if (number.gte(7)) {
-					return layers.infinity.tier1[number.sub(2).div(5).floor()] + this.convertToLayer(number.sub(2).sub(number.sub(2).div(5).floor().mul(5)).add(2),"Infinity");
+				} else if (number.gte(22)) {
+					return layers.infinity.tier1[number.sub(2).div(20).floor()] + this.convertToLayer(number.sub(2).sub(number.sub(2).div(20).floor().mul(20)).add(2),"Infinity");
 				} else {
 					return layers.infinity.default[number.sub(1).floor()];
 				};
