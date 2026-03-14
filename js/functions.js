@@ -95,8 +95,8 @@ var functions = {
 		}
 		data.mode = document.getElementById("layerModeOption").value;
 		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
-		let Gv = data.totalA.log(Number.MAX_VALUE).log10().add(1).tetrate(0.75)
-		let hy = Gv.div(data.totalA.slog().div(new Decimal(Number.MAX_VALUE).slog()).pow(4)).root(2)
+		let Gv = data.totalA.log(Number.MAX_VALUE).mul(0.8).pow(5).div(new Decimal(0.8).pow(5)).root(25).log10().add(1).pow(4)
+		let hy = Gv.div(data.totalA.slog().div(new Decimal(Number.MAX_VALUE).slog()).pow(4)).root(8)
 		let html = document.getElementsByTagName("html")[0]
 		data.number = data.totalA.gte(Number.MAX_VALUE)
 			? new Decimal(Number.MAX_VALUE).pow(hy.sub(hy.floor()))
