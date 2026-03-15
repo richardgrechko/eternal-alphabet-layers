@@ -24,17 +24,15 @@ var functions = {
 				};
 			case "Infinity":
 				if (number.gte("10^^1e308")) {
-					return "Ω<sup>◇[Ω]◇</sup>";
-				} else if (number.gte("10^^10")) {
+					return "◇<sup>◇[Ω]◇</sup>";
+				} else if (number.gte("10^^5")) {
 					return this.convertToLayer(new Decimal(10).pow(new Decimal(10).pow(number.slog().sub(number.slog().floor()))),"Infinity") + "<sup>◇[" + this.convertToLayer(number.slog().floor().sub(1),"Infinity") + "]◇</sup>";
-				} else if (number.gte(new Decimal(5).pow(9765625))) {
-					return "<sub>[" + this.convertToLayer(number.sub(2).log(3125).floor(),"Infinity") + "]</sub>◇";
-				} else if (number.gte(9765627)) {
-					return "<sub>[" + this.convertToLayer(number.sub(2).log(3125).floor(),"Infinity") + "]</sub>" + this.convertToLayer(number.sub(2).mul(3125).div(new Decimal(3125).pow(number.sub(2).log(3125).floor())).floor(),"Infinity");
-				} else if (number.gte(3127)) {
-					return this.convertToLayer(number.sub(1).div(3125).add(1).floor(),"Infinity") + ">" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(3125).floor().mul(3125)).add(2),"Infinity");
-				} else if (number.gte(27)) {
-					return "Lvl<sup>" + this.convertToLayer(number.sub(2).div(5).floor(),"Infinity") + "</sup>-" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(5).floor().mul(5)).add(2),"Infinity");
+				} else if (number.gte(new Decimal(20).pow(160000))) {
+					return "α<sub>[" + this.convertToLayer(number.sub(2).log(20).floor(),"Infinity") + "]</sub>◇";
+				} else if (number.gte(160002)) {
+					return "α<sub>[" + this.convertToLayer(number.sub(2).div(20).floor(),"Infinity") + "</sub>" + this.convertToLayer(number.sub(2).div(new Decimal(20).pow(number.sub(2).log(20).floor())).add(2),"Infinity") + "]</sub>";
+				} else if (number.gte(102)) {
+					return this.convertToLayer(number.sub(2).div(20).floor(),"Infinity") + "→" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(20).floor().mul(20)).add(2),"Infinity");
 				} else if (number.gte(22)) {
 					return layers.infinity.tier1[number.sub(2).div(20).floor()] + this.convertToLayer(number.sub(2).sub(number.sub(2).div(20).floor().mul(20)).add(2),"Infinity");
 				} else {
@@ -87,8 +85,8 @@ var functions = {
 	},
 	update() {
 		data.tetration = data.tetration || 0;
-		data.tetration += ((data.tetration >= 1) ? .0001/(data.tetration**0.8) : .001) * data.eternities.add(1).sqrt();
-		data.tetration *= 1 + (.0001 * Math.log10(data.tetration) * data.eternities.add(1).sqrt());
+		data.tetration += ((data.tetration >= 1) ? .00001/(data.tetration**0.8) : .0001) * data.eternities.add(1).sqrt();
+		data.tetration *= (data.tetration >= 1) ? 1 + (.00001 * Math.log10(data.tetration) * data.eternities.add(1).pow(2)) : 1;
 		if (data.tetration == Infinity) {
 			data.eternities = data.eternities.add(1);
 			data.tetration = 0;
@@ -96,7 +94,7 @@ var functions = {
 		data.mode = document.getElementById("layerModeOption").value;
 		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
 		let Gv = data.totalA.log(Number.MAX_VALUE).mul(0.8).pow(5).div(new Decimal(0.8).pow(5)).root(25).log10().add(1).pow(4)
-		let hy = Gv.div(data.totalA.slog().div(new Decimal(Number.MAX_VALUE).slog()).pow(4)).root(8)
+		let hy = Gv.div(data.totalA.slog().div(new Decimal(Number.MAX_VALUE).slog()).pow(4)).root(25)
 		let html = document.getElementsByTagName("html")[0]
 		data.number = data.totalA.gte(Number.MAX_VALUE)
 			? new Decimal(Number.MAX_VALUE).pow(hy.sub(hy.floor()))
