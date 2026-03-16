@@ -92,7 +92,7 @@ var functions = {
 		}
 		data.mode = document.getElementById("layerModeOption").value;
 		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
-		let layerFormula = data.totalA.log(Number.MAX_VALUE).log(2).mul(2.5).pow(3).add(1).root(1.25).root(25)
+		let layerFormula = data.totalA.log(Number.MAX_VALUE).log(2).div(16).add(1).root(data.totalA.slog().div(new Decimal(Number.MAX_VALUE).slog()).max(1).mul(2))
 		let html = document.getElementsByTagName("html")[0]
 		data.number = data.totalA.gte(Number.MAX_VALUE)
 			? new Decimal(Number.MAX_VALUE).pow(layerFormula.sub(layerFormula.floor()))
