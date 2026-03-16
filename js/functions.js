@@ -50,8 +50,7 @@ var functions = {
 	},
 	load() {
 		function loadValue(value,alternate) {
-			console.log((value !== undefined) ? value : alternate)
-			return (value  !== undefined) ? value : alternate;
+			return (value  !== undefined) ? new Decimal(value) : alternate;
 		};
 		let item = localStorage.getItem("EternalAlphabetLayersSave");
 		if (item != null) {
@@ -62,12 +61,12 @@ var functions = {
 				alert("Error loading game.\nReason: " + e);
 				return;
 			};
-			data.number = loadValue(data.number, new Decimal("1"));
-			data.layer = loadValue(data.layer, new Decimal("1"));
-			data.totalA = loadValue(data.totalA, new Decimal("1"));
-			data.eternities = loadValue(data.eternities, new Decimal("0"));
-			data.tetration = loadValue(data.tetration, 0);
-			data.layerHTML = loadValue(data.layerHTML, "Couldn't load.");
+			data.number = loadValue(object.number, new Decimal("1"));
+			data.layer = loadValue(object.layer, new Decimal("1"));
+			data.totalA = loadValue(object.totalA, new Decimal("1"));
+			data.eternities = loadValue(object.eternities, new Decimal("0"));
+			data.tetration = loadValue(object.tetration, 0);
+			data.layerHTML = loadValue(object.layerHTML, "Couldn't load.");
 		};
 	},
 	hardReset() {
