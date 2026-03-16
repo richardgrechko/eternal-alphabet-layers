@@ -30,7 +30,7 @@ var functions = {
 				} else if (number.gte(new Decimal(20).pow(160000))) {
 					return "α<sub>[" + this.convertToLayer(number.sub(2).log(20).floor(),"Infinity") + "]</sub>◇";
 				} else if (number.gte(160002)) {
-					return "α<sub>[" + this.convertToLayer(number.sub(2).div(20).floor(),"Infinity") + "</sub>" + this.convertToLayer(number.sub(2).div(new Decimal(20).pow(number.sub(2).log(20).floor())).add(2),"Infinity") + "]</sub>";
+					return "α<sub>[" + this.convertToLayer(number.sub(2).log(20).floor(),"Infinity") + "]</sub>" + this.convertToLayer(number.sub(2).div(new Decimal(20).pow(number.sub(2).log(20).sub(1).floor())).add(2),"Infinity");
 				} else if (number.gte(102)) {
 					return this.convertToLayer(number.sub(2).div(20).floor(),"Infinity") + "→" + this.convertToLayer(number.sub(2).sub(number.sub(2).div(20).floor().mul(20)).add(2),"Infinity");
 				} else if (number.gte(22)) {
@@ -93,7 +93,7 @@ var functions = {
 		}
 		data.mode = document.getElementById("layerModeOption").value;
 		data.totalA = new Decimal("10").tetrate(data.tetration || 0);
-		let Gv = data.totalA.log(Number.MAX_VALUE).mul(0.8).pow(5).div(new Decimal(0.8).pow(5)).root(25).log10().add(1).pow(4)
+		let Gv = data.totalA.log(Number.MAX_VALUE).sub(1).mul(0.8).add(2).log(2)
 		let hy = Gv.div(data.totalA.slog().div(new Decimal(Number.MAX_VALUE).slog()).pow(4)).root(25)
 		let html = document.getElementsByTagName("html")[0]
 		data.number = data.totalA.gte(Number.MAX_VALUE)
