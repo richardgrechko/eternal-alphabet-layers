@@ -6,3 +6,6 @@ var data = {
 	tetration: 0,
 	layerHTML: "",
 }
+functions.load()
+functions.update();
+setInterval(functions.save,200)
