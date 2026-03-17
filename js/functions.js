@@ -71,19 +71,17 @@ var functions = {
 	},
 	hardReset() {
 		let a = prompt("Are you sure?").toLowerCase();
-		if (a != "yes" || a != "y") {
-			return
+		if (a == "yes" || a == "y") {
+			let b = prompt("Are you really sure? You will lose your progress.").toLowerCase();
+			if (b == "yes" || b == "y") {
+				data.number = new Decimal("1");
+				data.layer = new Decimal("1");
+				data.totalA = new Decimal("1");
+				data.eternities = new Decimal("0");
+				data.tetration = 0;
+				data.layerHTML = "Loading";
+			};
 		};
-		let b = prompt("Are you really sure? You will lose your progress.").toLowerCase();
-		if (b != "yes" || b != "y") {
-			return
-		};
-		data.number = new Decimal("1");
-		data.layer = new Decimal("1");
-		data.totalA = new Decimal("1");
-		data.eternities = new Decimal("0");
-		data.tetration = 0;
-		data.layerHTML = "Loading";
 	},
 	update() {
 		data.tetration = data.tetration || 0;
