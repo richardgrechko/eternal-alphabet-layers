@@ -87,7 +87,7 @@ var functions = {
 	},
 	update() {
 		data.tetration = data.tetration || 0;
-		data.tetration += ((data.tetration >= 1) ? .0001/(data.tetration**0.8) : .0005) * data.eternities.add(1).sqrt();
+		data.tetration += ((data.tetration >= 1) ? .0001/(data.tetration**2) : .0005) * data.eternities.add(1).sqrt();
 		data.tetration *= (data.tetration >= 1) ? 1 + (.00001 * Math.log10(data.tetration) * data.eternities.add(1).pow(2)) : 1;
 		if (data.tetration == Infinity) {
 			data.eternities = data.eternities.add(1);
