@@ -1,13 +1,13 @@
 html {
   background-color: #000;
   color: #fff;
-  font-family: richardgrechko terminal 2, monospace;
+  font-family: richardgrechko terminal, monospace;
   font-optical-sizing: auto;
   font-style: normal;
   text-align: center;
 }
 @font-face {
-  font-family: 'richardgrechko terminal 2';
+  font-family: 'richardgrechko terminal';
   src: url('./fonts/richard-grechko-terminal-2.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
