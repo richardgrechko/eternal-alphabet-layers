@@ -15,7 +15,7 @@ var functions = {
 					return "<[" + this.convertToLayer(number.slog().floor().sub(1)) + "]>:" + this.convertToLayer(new Decimal(10).pow(new Decimal(10).pow(number.slog().sub(number.slog().floor()))));
 				} else if (number.gte("ee10")) {
 					return "<sub>{" + this.convertToLayer(number.mul(26).add(1).log(27).floor().sub(1)) + "}</sub>◇";
-				} else if (number.gte(5646683826135)) {
+				} else if (number.gte(Decimal.sumGeometricSeries(9,1,26,1).add(1))) {
 					return "<sub>{" + this.convertToLayer(number.mul(26).add(1).log(27).floor().sub(1)) + "}</sub>" + this.convertToLayer(new Decimal(27).pow(number.mul(26).add(1).log(27).sub(number.mul(26).add(1).log(27).floor())).mul(26).add(1).mul(26).add(1));
 				} else if (number.gte(27)) {
 					return this.convertToLayer(number.sub(1).div(26).floor()) + this.convertToLayer(number.sub(1).sub(number.sub(1).div(26).floor().mul(26)).add(1));
