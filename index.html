@@ -26,18 +26,22 @@
     <div id="app" class="layer-background">
       <div>Formerly Absolute Layerium, but moved to a different game because of bugs.</div>
       <a href="https://veprogames.github.io/omega-meta-zero/">Also check out Omega Meta Zero</a>
-      <div id="layerMode">
-        <label for="layerModeOption">Layer Mode: </label>
-        <select id="layerModeOption">
-          <option>Normal</option>
-          <option>Infinity</option>
-        </select>
+      <div id="tab--layer">
+        <div id="layers">Loading</div>
+        <div id="totalA"></div>
+        <div id="currentLayer"></div>
+        <div id="eternities"></div>
       </div>
-      <button id="hardReset" onclick="functions.hardReset()">HARD RESET</button>
-      <div id="layers">Loading</div>
-      <div id="totalA"></div>
-      <div id="currentLayer"></div>
-      <div id="eternities"></div>
+      <div id="tab--settings">
+        <div id="layerMode">
+          <label for="layerModeOption">Layer Mode: </label>
+          <select id="layerModeOption">
+            <option>Normal</option>
+            <option>Infinity</option>
+          </select>
+        </div>
+        <button id="hardReset" onclick="functions.hardReset()">HARD RESET</button>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/break_eternity.js"></script>
     <script src="js/formatting.js"></script>
