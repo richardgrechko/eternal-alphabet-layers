@@ -83,6 +83,17 @@ var functions = {
 			};
 		};
 	},
+	switchTab(tab) {
+		if (!document.getElementById("tab--"+tab)) {
+			return;
+		}
+		for (let i of document.getElementsByTagName("div")) {
+			if (i.startsWith("tab--")) {
+				i.style.display = "none"
+			}
+		}
+		document.getElementById("tab--"+tab).style.display = "inline"
+	},
 	update() {
 		data.tetration = data.tetration || 0;
 		data.tetration += ((data.tetration >= 1) ? .0001/(data.tetration**2) : .0005) * data.eternities.add(1).sqrt();
